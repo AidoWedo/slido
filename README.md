@@ -1,9 +1,9 @@
-# Sales Kick Off Activity Web App
+# Sales Kick-Off Activity Web App
 
 This project is a visually styled web page designed for the SKO-FY26 Customer Obsession Activity. It provides an interactive experience for event participants, integrating Slido for live Q&A and results, and is themed for the ONEteam Passion initiative.
 
 ## Features
-- **Custom Branding:** Uses SKO-FY26 and ONEteam Passion branding, including logos and themed colors.
+- **Custom Branding:** Including logos and themed colors.
 - **Background Media:** Includes a looping background video and themed images for an engaging visual experience.
 - **Audio:** Plays a custom audio file on page load.
 - **Slido Integration:**
@@ -25,8 +25,8 @@ This project is a visually styled web page designed for the SKO-FY26 Customer Ob
 - `Index.html` — Main web page.
 - `background.mp4` — Background looping video.
 - `firststrike.wav` — Audio played on load.
-- `SKO-FY26-color.svg` — Event logo.
-- `strip.svg` — Themed images.
+- `SKO-FY26-color.svg` — Event logo example
+- `strip.svg` — Themed images example
 
 ## Requirements
 - A modern web browser (Chrome, Edge, Firefox, Safari, etc.).

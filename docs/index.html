@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Obsession Activity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #E5F1FA;
+      color: #111;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .header {
+      background: linear-gradient(to right, #E5F1FA, #b3c9d6);
+      text-align: center;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .header img {
+      max-height: 80px;
+      margin-right: 1rem;
+    }
+
+    .header-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #111;
+      text-shadow: 0 2px 8px #b3c9d6;
+    }
+
+    .content-wrapper {
+      display: grid;
+      grid-template-columns: 1fr minmax(300px, 900px) 1fr;
+      gap: 20px;
+      width: 100vw;
+      margin: 0;
+      padding: 0;
+    }
+
+    .side-media {
+      width: 100%;
+      height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+    }
+
+    .side-media img,
+    .side-media video {
+      width: 100%;
+      height: 100%;
+      border-radius: 18px;
+      border: 4px solid #b3c9d6;
+      box-shadow: 0 0 18px #b3c9d6;
+      object-fit: cover;
+      margin: 0;
+      padding: 0;
+    }
+
+    .side-media img {
+      max-height: 70%;
+      max-width: 90%;
+      object-fit: contain;
+      margin: auto;
+      display: block;
+      border-radius: 0;
+      border: none;
+      box-shadow: none;
+    }
+
+    .side-media video {
+      max-height: 70%;
+      max-width: 90%;
+      object-fit: contain;
+      margin: auto;
+      display: block;
+      border-radius: 0;
+      border: none;
+      box-shadow: none;
+    }
+
+    .slido-container {
+      flex: 2;
+      min-width: 300px;
+      background-color: #fff;
+      padding: 0;
+      border: 4px solid #b3c9d6;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #b3c9d6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 700px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      color: #ccc;
+    }
+
+    @media (max-width: 800px) {
+      .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      .side-media {
+        max-width: 100vw;
+        min-width: 0;
+        width: 100%;
+      }
+      .side-media img,
+      .side-media video {
+        width: 100%;
+        height: 300px;
+      }
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="SKO-FY26-color.svg" alt="SKO-FY26 Logo">
+    <span class="header-title">Customer Obsession Activity</span>
+  </div>
+
+  <!-- Audio player -->
+  <audio autoplay preload="auto" style="display:none">
+    <source src="firststrike.wav" type="audio/wav">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="content-wrapper">
+
+    <!-- Left: background video -->
+    <div class="side-media">
+      <video autoplay loop muted playsinline>
+        <source src="background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Center: Slido -->
+    <div class="slido-container">
+      <div id="slido-note" style="width:100%;text-align:center;font-size:1.2rem;color:#111;margin-bottom:2rem;">
+        <strong>Note:</strong> When asked by Slido, use a team name to submit answers <br><span style='font-size:1rem'>(e.g., Team Ferrari)</span>
+      </div>
+      <!-- QR Code for joining -->
+      <div class="qr-code" id="qr-code" style="display:flex;flex-direction:column;align-items:center;justify-content:center;margin:2rem 3rem;">
+        <h2 style="text-align: center; margin-bottom: 1rem;">Scan to Join</h2>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://app.sli.do/event/gQCoFu49edcbcPSbteYeW8" alt="QR Code" style="border-radius:12px;border:2px solid #b3c9d6;box-shadow:0 0 10px #b3c9d6;">
+        <button id="to-results-btn" style="margin-top:2rem;padding:0.6rem 2.2rem;font-size:1.1rem;background:#b3c9d6;color:#111;border:none;border-radius:8px;cursor:pointer;font-weight:700;transition:background 0.2s;">Continue to Results</button>
+      </div>
+      <!-- Slido Results Embed -->
+      <div class="results-frame" id="results-frame" style="max-width: 600px; margin: 0 auto; flex: 1; display: none;">
+        <iframe 
+          src="https://wall.sli.do/event/gQCoFu49edcbcPSbteYeW8"
+          allowfullscreen
+          width="100%" 
+          height="600px" 
+          frameborder="0" 
+          style="border-radius: 10px;"
+          title="Slido Results">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Right: strip image -->
+    <div class="side-media">
+      <img src="strip.svg" alt="Race Strip">
+    </div>
+
+  </div>
+
+  <div class="footer">
+    🏁 Interactive Q&A powered by Slido · Styled for ONEteam Passion
+  </div>
+
+  <script>
+    const toResultsBtn = document.getElementById('to-results-btn');
+    if (toResultsBtn) {
+      toResultsBtn.onclick = function() {
+        document.getElementById('slido-note').style.display = 'none';
+        document.getElementById('qr-code').style.display = 'none';
+        document.getElementById('results-frame').style.display = 'block';
+      };
+    }
+  </script>
+
+</body>
+</html>
